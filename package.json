@@ -1,21 +1,27 @@
 {
-  "name": "crawlernode",
+  "name": "example",
   "version": "1.0.0",
-  "description": "crawler web using nodejs",
+  "description": "Express api",
   "scripts": {
     "start": "nodemon server.js --exec babel-node",
+    "build": "next build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "robo",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4"
-  },
+  "author": "cedric",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
     "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-validation": "^1.0.2",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.4.0"
   }
 }
