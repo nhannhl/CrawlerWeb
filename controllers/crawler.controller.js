@@ -16,7 +16,7 @@ const getListArticles = async (url = null, next) => {
     try {
         const browser = await Puppeteer.launch();
         const page = await browser.newPage();
-        await page.goto(url);
+        await page.goto(url, {waitUntil: 'load', timeout: 0});
         const articles = await page.evaluate(() => {
             const articlesPerPage = document.getElementsByClassName("mbn-box-list-content").length;
             const ar_title = new Array();
@@ -41,7 +41,7 @@ const getPhone = async (next) => {
         const browser = await Puppeteer.launch();
         const page = await browser.newPage();
         for (const element of result) {
-            await page.goto(element.link);
+            await page.goto(element.link, {waitUntil: 'load', timeout: 0});
             const phone = await page.evaluate(() => {
                 const data = document.getElementsByClassName("contactmobile-desktop")[0].getElementsByTagName("b")[0].innerText;
                 return data;
@@ -79,7 +79,7 @@ CrawlerController.getData = async (req, res, next) => {
         }
         await getBanDat(req.params.page, next);
         await fs.writeFileSync(dataLink, JSON.stringify(result));
-        return res.json({ "isSuccess": true, "data": result });
+        return res.json({ "isSuccess": true });
     } catch(err) {
         return next(err);
     }
