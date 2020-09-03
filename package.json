@@ -23,6 +23,6 @@
     "jsonwebtoken": "^8.4.0",
     "md5": "^2.2.1",
     "mongoose": "^5.4.0",
-    "puppeteer": "^1.11.0"
+    "puppeteer": "^1.13.0"
   }
 }
